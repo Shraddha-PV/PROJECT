@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ORDER YOUR FAVOURITE FOOD</title>
+<style>
+*{
+margin:0;
+padding:0;
+font-family:Copperplate Gothic Bold;
+box-sizing:border-box;
+}
+h1{
+text-align:center;
+color:orange;
+padding:20px;
+}
+nav{
+background-color:lightGrey;
+dispaly:grid;
+place-items:center;
+}
+ nav ul{
+ list-style-type:none;
+ }
+ nav ul a{
+ display:inline-block;
+ padding:20px;
+ text-decoration:none;
+ color:#000;
+ transition:0.2s ease-in;
+ font-size:18px;
+ }
+ul{text-align:center;}
+ .items{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ padding:30px 60px;
+ grid-column-gap:20px;
+ grid-row-gap:30px;
+ text-align:center;
+ }
+ .item img{
+ width:60%;
+ height:250px;
+ object-fit:cover;
+ cursor:pointer;
+ transition:0.4s ease;
+ }
+ .item img:hover{
+ transform:scale(1.04);
+ }
+ .item h4{
+ padding:5px;
+ text-align:center;
+ background-color:white;
+ font-family:black;
+ }
+ .item button
+{
+color:#fff;
+width:50%;
+padding:10px;
+border-radius:10px;
+font-size:15px;
+margin:10px 0;
+border:none;
+outline:none;
+cursor:pointer;
+background-color:#1c8adb;
+}
+button
+{
+color:#fff;
+width:140%;
+padding:10px;
+border-radius:20px;
+font-size:15px;
+margin:10px 0;
+border:none;
+outline:none;
+cursor:pointer;
+background-color:red;
+}
+ 
+ .item button:hover{
+ transform:scale(1.04);
+ }
+ 
+ 
+</style>
+</head>
+<body>
+<h1>BEVERAGES</h1>
+<nav>
+<ul>
+<a href="#"></a>
+<a href="order2.html">
+<button class="button"onclick="alert('You have clicked Home');">HOME</button>
+</a>
+<a href="#"></a>
+<a href="vege.html">
+<button class="button"onclick="alert('You have clicked vegetarian');">vegetarian</button>
+</a>
+
+<a href="#"></a>
+<a href="nonveg.html">
+<button class="button"onclick="alert('you have clicked Non-Vegetarian');">NON-VEGETARIAN</button>
+</a>
+</ul>
+
+</nav>
+
+ <section class="items">
+ 
+ <div class="item">
+ 
+ <img src="C:\web\59.jpg">
+ 
+ <h4>Coconut MilkShake.... RS.70</h4>
+ <a href="orderplace.html">
+<button class="button"onclick="alert('YOU HAVE ORDERED Coconut MilkShake');">ORDER</button>
+ </a>
+ </div>
+ <div class="item">
+ <img src="C:\web\60.jpg">
+ <h4>Snicker Shake....RS.120</h4>
+<a href="orderplace.html">
+ <button class="button"onclick="alert('YOU HAVE ORDERED Snicker Shake');">ORDER</button>
+  </a>
+ </div>
+ <div class="item">
+ <img src="C:\web\61.WEBP">
+ <h4>Belgian Chocolate....RS.50</h4>
+ <a href="orderplace.html">
+ <button class="button"onclick="alert('YOU HAVE ORDERED Belgian Chocolate ');">ORDER</button>
+ </a>
+ </div>
+ <div class="item">
+ <img src="C:\web\63.webp">
+ <h4>Chickoo MilkShake....RS.100</h4>
+<a href="orderplace.html">
+ <button class="button"onclick="alert('YOU HAVE ORDERED Chickoo MilkShake');">ORDER</button>
+  </a>
+ </div>
+ <div class="item">
+ <img src="C:\web\65.jpg">
+ <h4>Royal Falooda....RS.180</h4>
+ <a href="orderplace.html">
+ <button class="button"onclick="alert('YOU HAVE ORDERED Royal Falooda');">ORDER</button>
+  </a>
+ </div>
+ 
+ <div class="item">
+ <img src="C:\web\64.webp">
+ <h4>Avil Milk....RS.180</h4>
+ <a href="orderplace.html">
+ <button class="button"onclick="alert('YOU HAVE ORDERED Avil Milk');">ORDER</button>
+  </a>
+ </div>
+ </section>
+</body>
+</html>

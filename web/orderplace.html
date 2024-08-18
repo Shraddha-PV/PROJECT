@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: auto;
+        }
+
+        #order_container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .ordered-items {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 20px;
+            background-color: #f8f9fa;
+            text-align: left;
+        }
+
+        .ordered-item {
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+        }
+
+        .ordered-item:last-child {
+            border-bottom: none;
+        }
+
+        .remove-btn {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .remove-btn:hover {
+            background-color: #c82333;
+        }
+
+        #order_form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        #order_form input[type="text"],
+        #order_form input[type="tel"],
+        #order_form textarea {
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        #order_form button[type="submit"] {
+            background-color: rgb(10, 187, 10);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        #order_form button[type="submit"]:hover {
+            background-color: green;
+        }
+
+        #total_price {
+            background-color: #800080;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="order_container">
+        <h1>Ordered Items</h1>
+        <div class="ordered-items" id="ordered_items_container">
+            <!-- Ordered items will be dynamically added here -->
+        </div>
+        <div id="total_price"></div>
+        <form id="order_form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required><br><br>
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" required></textarea><br><br>
+            <button type="submit" id="submit_button">Submit Order</button>
+        </form>
+    </div>
+
+
+
+    <script>
+        // to retrive session fromm s.memory
+        var orderedItems = sessionStorage.getItem('orderedItems');
+        if (orderedItems) {
+            orderedItems = JSON.parse(orderedItems);
+
+            // continer div to add items
+            var container = document.getElementById('ordered_items_container');
+
+            var totalPrice = 0;
+
+
+            orderedItems.forEach(function (item, index) {  // to get all the items from order s.memory
+                var orderedItemDiv = document.createElement('div');
+                orderedItemDiv.classList.add('ordered-item');
+                orderedItemDiv.innerHTML = '<div><p><strong>Name:</strong> ' + item.name + '</p>' +
+                    '<p><strong>Price:</strong> ' + item.price + '</p></div>' +
+                    '<button class="remove-btn" onclick="removeItem(' + index + ')">Remove</button>';
+                container.appendChild(orderedItemDiv);
+
+                //ttotal cal
+                totalPrice += item.price;
+            });
+
+            // diplay total
+            var totalPriceDiv = document.getElementById('total_price');
+            totalPriceDiv.innerHTML = '<p><strong>Total Price:</strong> ' + totalPrice + '</p>';
+        } else {
+            // if no item selected shoiw this message 
+            var totalPriceDiv = document.getElementById('total_price');
+            totalPriceDiv.innerHTML =  'No items ordered yet.';
+         
+        }
+
+        // remove btn
+        function removeItem(index) {
+            var orderedItems = sessionStorage.getItem('orderedItems');
+            if (orderedItems) {
+                orderedItems = JSON.parse(orderedItems);
+
+                //   remove give item
+                orderedItems.splice(index, 1);
+
+
+
+
+                // after removal session upate 
+                sessionStorage.setItem('orderedItems', JSON.stringify(orderedItems));
+                location.reload();
+            }
+        }
+
+        // Submit btn
+        document.getElementById('order_form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            var orderedItems = sessionStorage.getItem('orderedItems');
+            if (orderedItems) {
+                // Getting order details
+                var name = document.getElementById('name').value;
+                var phone = document.getElementById('phone').value;
+                var address = document.getElementById('address').value;
+
+                // Sending both order details and ordered items to PHP script
+                var formData = new FormData();
+                formData.append('name', name);
+                formData.append('phone', phone);
+                formData.append('address', address);
+                formData.append('orderedItems', orderedItems);
+
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', 'save_order.php', true);
+                xhr.onload = function () {
+                    if (xhr.status === 200) {
+                        alert(xhr.responseText);
+                        sessionStorage.removeItem('orderedItems');
+                        window.location.href = 'grocery.html';
+                    } else {
+                        alert('Failed to submit order. Please try again later.');
+                    }
+                };
+                xhr.send(formData);
+            } else {
+                alert('No items to submit.');
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ORDER YOUR FAVOURITE FOOD</title>
+<style>
+*{
+margin:0;
+padding:0;
+font-family:Copperplate Gothic Bold;
+box-sizing:border-box;
+}
+h1{
+text-align:center;
+color:orange;
+padding:20px;
+}
+nav{
+background-color:lightGrey;
+dispaly:grid;
+place-items:center;
+}
+ nav ul{
+ list-style-type:none;
+ }
+ nav ul a{
+ display:inline-block;
+ padding:20px;
+ text-decoration:none;
+ color:#000;
+ transition:0.2s ease-in;
+ font-size:18px;
+ }
+ul{text-align:center;}
+ .items{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ padding:30px 20px;
+ grid-column-gap:20px;
+ grid-row-gap:30px;
+ text-align:center;
+ }
+ .item img{
+ width:70%;
+ height:250px;
+ object-fit:cover;
+ cursor:pointer;
+ transition:0.2s ease;
+ }
+ .item img:hover{
+ transform:scale(1.04);
+ }
+ .item h4{
+ padding:5px;
+ text-align:center;
+ background-color:white;
+ font-family:black;
+ }
+ .item button
+{
+color:#fff;
+width:50%;
+padding:10px;
+border-radius:10px;
+font-size:15px;
+margin:10px 0;
+border:none;
+outline:none;
+cursor:pointer;
+background-color:#1c8adb;
+}
+button
+{
+color:#fff;
+width:140%;
+padding:10px;
+border-radius:20px;
+font-size:15px;
+margin:10px 0;
+border:none;
+outline:none;
+cursor:pointer;
+background-color:red;
+}
+ 
+ .item button:hover{
+ transform:scale(1.04);
+ }
+ 
+ 
+</style>
+</head>
+<body>
+<h1></h1>
+<nav>
+<ul>
+<a href="#"></a>
+<a href="order2.html">
+<button class="button"onclick="alert('You have clicked Home');">HOME</button>
+</a>
+<a href="#"></a>
+<a href="grocery.html">
+<button class="button"onclick="alert('You have clicked Beverages');">GROCERY ITEMS</button>
+</a>
+
+<a href="#"></a>
+<a href="nonveg.html">
+<button class="button"onclick="alert('you have clicked Non-Vegetarian');">FROZEN ITEMS</button>
+</a>
+</ul>
+
+</nav>
+
+ <section class="items">
+ 
+ <div class="item">
+ 
+ <img src="C:\web\51.jpg">
+ 
+ <h4>Pizza.... RS.90</h4>
+ <a href="orderplace.html">
+<button class="button"onclick="alert('YOU HAVE ORDERED PIZZA');">ORDER</button>
+ </a>
+ </div>
+ <div class="item">
+ <img src="C:\web\52.jpg">
+ <h4>Gobi Manchurian....RS.120</h4>
+<a href="orderplace.html">
+ <button class="button"onclick="alert('YOU HAVE ORDERED GOBI');">ORDER</button>
+  </a>
+ </div>
+ <div class="item">
+ <img src="C:\web\53.WEBP">
+ <h4>Idli Vada....RS.50</h4>
+ <a href="orderplace.html">
+ <button class="button"onclick="alert('YOU HAVE ORDERED IDLI VADA');">ORDER</button>
+ </a>
+ </div>
+ <div class="item">
+ <img src="C:\web\54.JPG">
+ <h4>Masala dosa....RS.100</h4>
+<a href="orderplace.html">
+ <button class="button"onclick="alert('YOU HAVE ORDERED MASALA DOSA');">ORDER</button>
+  </a>
+ </div>
+ <div class="item">
+ <img src="C:\web\55.jpg">
+ <h4>Paneer Butter Masala....RS.180</h4>
+ <a href="orderplace.html">
+ <button class="button"onclick="alert('YOU HAVE ORDERED PANEER BUTTER MASALA');">ORDER</button>
+  </a>
+ </div>
+ <div class="item">
+ <img src="C:\web\6.jpg">
+ <h4>Veg pulav...RS.90</h4>
+ <a href="orderplace.html">
+ <button class="button"onclick="alert('YOU HAVE ORDERED VEG PULAV');">ORDER</button>
+  </a>
+ </div>
+ <div class="item">
+ <img src="C:\web\7.jpg">
+ <h4>Veg Noodles...RS.110</h4>
+ <a href="orderplace.html">
+ <button class="button"onclick="alert('YOU HAVE ORDERED VEG NOODLES');">ORDER</button>
+  </a>
+ </div>
+ <div class="item">
+ <img src="C:\web\56.webp">
+ <h4>Chapathi...RS.60</h4>
+ <a href="orderplace.html">
+ <button class="button"onclick="alert('YOU HAVE ORDERED CHAPATHI');">ORDER</button>
+  </a>
+ </div>
+ <div class="item">
+ <img src="C:\web\57.jpg">
+ <h4>Puri...RS.60</h4>
+ <a href="orderplace.html">
+ <button class="button"onclick="alert('YOU HAVE ORDERED PURI');">ORDER</button>
+ </a>
+ </div>
+ 
+ </section>
+</body>
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>ORDER YOUR REQUIRED GROCERY</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: Copperplate Gothic Bold;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      text-align: center;
+      color: #800080;
+      padding: 20px;
+    }
+
+    nav {
+      background-color: #dfc5fe;
+      dispaly: grid;
+      place-items: center;
+    }
+
+    nav ul {
+      list-style-type: none;
+    }
+
+    nav ul a {
+      display: inline-block;
+      padding: 20px;
+      text-decoration: none;
+      color: #000;
+      transition: 0.2s ease-in;
+      font-size: 18px;
+    }
+
+    ul {
+      text-align: center;
+    }
+
+    .items {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      padding: 30px 20px;
+      grid-column-gap: 20px;
+      grid-row-gap: 30px;
+      text-align: center;
+    }
+
+    .item img {
+      width: 70%;
+      height: 250px;
+      object-fit: cover;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .item img:hover {
+      transform: scale(1.04);
+    }
+
+    .item h4 {
+      padding: 5px;
+      text-align: center;
+      background-color: white;
+      font-family: black;
+    }
+
+    .item button {
+      color: #fff;
+      width: 50%;
+      padding: 10px;
+      border-radius: 10px;
+      font-size: 15px;
+      margin: 10px 0;
+      border: none;
+      outline: none;
+      cursor: pointer;
+
+    }
+
+    button {
+      color: #fff;
+      width: 140%;
+      padding: 10px;
+      border-radius: 20px;
+      font-size: 15px;
+      margin: 10px 0;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      background-color: #800080;
+    }
+
+    button:hover{
+      background-color: #c404c4;
+    }
+
+    .item button:hover {
+      transform: scale(1.04);
+    }
+    .banner {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 500px; /* Adjust height as needed */
+        }
+
+        /* Style for the banner slides */
+        .banner-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0; /* Hide all slides initially */
+            transition: opacity 1s ease;
+        }
+
+        /* Show the first slide initially */
+        .banner-slide:first-child {
+            opacity: 1;
+        }
+
+        /* Styles for the content within the slides */
+        .banner-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(18, 21, 24, 0.8);
+            text-align: center;
+            color: #fff;
+            border-radius: 5vh;
+            height: 50vh;
+        }
+
+        .banner-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+          /* Blue background color with 50% opacity */
+            padding: 10px; /* Padding around the text */
+            border-radius: 5px; /* Rounded corners */
+            color: rgb(251, 251, 251);
+        }
+
+        .banner-content p {
+            font-size: 24px;
+            margin-bottom: 30px;
+            /* Blue background color with 50% opacity */
+            padding: 10px; /* Padding around the text */
+            border-radius: 5px; /* Rounded corners */
+            color: rgb(240, 234, 234);
+        }
+
+        /* Style for the button */
+        .banner-content button {
+            padding: 15px 30px;
+            font-size: 24px;
+            background-color: #800080;
+            color: #f7f9fa;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border-radius: 2vh;
+        }
+
+ button:hover {
+            background-color: #b417b4;
+        
+        }
+
+        /* Style for the navigation arrows */
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: auto;
+            padding: 16px;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8); /* Darker background on hover */
+        }
+
+        .prev {
+            left: 0;
+        }
+
+        .next {
+            right: 0;
+        }
+
+        /* Style for the navigation dots */
+        .dot-container {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+
+        .dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background-color: #bbb;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background-color: #717171;
+        }
+  </style>
+</head>
+
+<body>
+  <h1>HOME PAGE</h1>
+  <nav>
+    <ul>
+      <a href="#"></a>
+      <a href="index.html">
+        <button class="button" >HOME</button>
+      </a>
+      <a href="#"></a>
+      <a href="grocery.html">
+        <button class="button" >GROCERY ITEMS</button>
+      </a>
+
+      <a href="#"></a>
+      <a href="frozen.html">
+        <button class="button" >FROZEN ITEMS</button>
+      </a>
+    </ul>
+
+  </nav>
+  <iframe src="slider.html" width="100%" height="600px" frameborder="0"></iframe>
+  <h1 style="font-size:50px;">NEW ARRIVALS!</h1>
+  <section class="items">
+
+    <div class="item" id="item">
+
+      <img src="kurkure Chilli.avif">
+
+      <h4>kurkure.... RS.90</h4>
+      <a href="orderplace.html">
+      </a>
+    </div>
+    <div class="item">
+      <img src="pepsi.webp">
+      <h4>Pepsi....RS.120</h4>
+      <a href="orderplace.html">
+      </a>
+    </div>
+    <div class="item">
+      <img src="maggi-2-minute-masala-noodles-70-g-product-images-o490000363-p490000363-2-202305292130.webp">
+      <h4>Maggi....RS.50</h4>
+      <a href="orderplace.html">
+
+      </a>
+    </div>
+    <div class="item">
+      <img src="moosambi.webp">
+      <h4>Moosambi....RS.100</h4>
+      <a href="orderplace.html">
+      </a>
+    </div>
+    <div class="item">
+      <img src="kinderjoy.webp">
+      <h4>Kinder Joy....RS.180</h4>
+      <a href="orderplace.html">
+      </a>
+    </div>
+    <div class="item">
+      <img src="darkfantasy.webp">
+      <h4>Dark Fantasy...RS.90</h4>
+      <a href="orderplace.html">
+      </a>
+    </div>
+    <div class="item">
+      <img src="cauliflower.webp">
+      <h4>Cauliflower...RS.110</h4>
+      <a href="orderplace.html">
+      </a>
+    </div>
+    <div class="item">
+      <img src="surfexecl.jpg">
+      <h4>Surf Execel...Rs.200</h4>
+      <a href="orderplace.html">
+      </a>
+    </div>
+    <div class="item">
+      <img src="coffee.jpg">
+      <h4>Coffee...RS.160</h4>
+      <a href="orderplace.html">
+      </a>
+    </div>
+
+  </section>
+  <script>
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("demo");
+    output.innerHTML = slider.value; // Display the default slider value
+
+    // Update the current slider value (each time you drag the slider handle)
+    slider.oninput = function () {
+      output.innerHTML = this.value;
+    }
+  </script>
+</body>
+
+</html>
